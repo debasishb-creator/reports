@@ -1,12 +1,11 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="color-scheme" content="light">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Batch attendance dashboard</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f5f6f8;--sf:#fff;--tx:#1a2233;--mu:#5d667a;--ln:#dfe3ea;--pr:#0f766e;--ab:#d9d4e4;--hi:#0f766e;--md:#b45309;--lo:#b91c1c;--ac:#243b6b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--sf:#1b202b;--tx:#e8ebf2;--mu:#9aa3b8;--ln:#2c3342;--pr:#2dd4bf;--ab:#3a3f55;--hi:#2dd4bf;--md:#fbbf24;--lo:#f87171;--ac:#8fa8e8}}
-:root[data-theme="dark"]{--bg:#12151c;--sf:#1b202b;--tx:#e8ebf2;--mu:#9aa3b8;--ln:#2c3342;--pr:#2dd4bf;--ab:#3a3f55;--hi:#2dd4bf;--md:#fbbf24;--lo:#f87171;--ac:#8fa8e8}
+:root{color-scheme:light;--bg:#fff;--sf:#fff;--tint:#f4f6fa;--tx:#111827;--mu:#4b5563;--ln:#d6dbe4;--pr:#0f766e;--ab:#d9d4e4;--hi:#0f766e;--md:#b45309;--lo:#b91c1c;--ac:#1f3a6e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:14px/1.45 'IBM Plex Sans',system-ui,sans-serif}
 main{max-width:1180px;margin:0 auto;padding:20px 16px 48px}
@@ -29,7 +28,7 @@ tr.row{cursor:pointer}tr.row:hover td{background:color-mix(in srgb,var(--ac) 7%,
 tr.sel td{background:color-mix(in srgb,var(--ac) 12%,transparent)}
 .rate{display:flex;align-items:center;gap:8px;min-width:150px}.rate .bar{flex:1}.rate em{font-style:normal;width:46px;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
 .hi{color:var(--hi)}.md{color:var(--md)}.lo{color:var(--lo)}
-tr.det td{background:var(--bg);padding:0 10px 12px 28px}.det table{min-width:560px}.det th{cursor:default}
+tr.det td{background:var(--tint);padding:0 10px 12px 28px}.det table{min-width:560px}.det th{cursor:default}
 .mu{color:var(--mu)}.tag{font-size:12px;color:var(--mu)}
 .ab{font:inherit;font-size:12.5px;color:var(--ac);background:transparent;border:1px solid var(--ac);border-radius:6px;padding:3px 9px;cursor:pointer;white-space:nowrap}.ab:hover{background:color-mix(in srgb,var(--ac) 12%,transparent)}
 dialog{background:var(--sf);color:var(--tx);border:1px solid var(--ln);border-radius:10px;padding:16px;width:min(760px,94vw);max-height:84vh}dialog::backdrop{background:rgba(0,0,0,.45)}
@@ -52,6 +51,7 @@ dialog .wrap{max-height:56vh;overflow:auto}dialog table{min-width:480px}dialog a
 .two{grid-template-columns:1fr}}
 .sh{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}.sh h2{margin:0}.sh.dh{margin-bottom:0}.sbody{margin-top:12px}.sbody[hidden]{display:none}
 .tg::before{content:'▸ '}.tg[aria-expanded="true"]::before{content:'▾ '}#bc,#thc,#suc{max-height:560px;overflow:auto;padding-right:6px}
+html,body{background:#ffffff!important;color:#111827}
 </style></head><body><main>
 <h1 id="ttl">Batch attendance report</h1>
 <p class="sub">Attendance rate = present ÷ attendance records (one record per student per class). Use the Centres, Batches, Teachers and Subjects filters (several can be selected) to narrow the whole report, and click a batch to see its classes. Use Absent list on any centre, batch or class to see who was absent and their mobile numbers.</p>
